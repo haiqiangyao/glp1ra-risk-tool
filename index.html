@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLP-1RA Gastrointestinal Tolerability Decision Aid</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>GLP-1RA Gastrointestinal Tolerability Decision Aid</h1>
+    <p class="subtitle">Network meta-analysis &middot; 222 RCTs &middot; 118,110 participants</p>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="selection"  role="tab" aria-selected="true">Drug Selection</button>
+    <button class="tab"        data-tab="counseling" role="tab" aria-selected="false">Patient Counseling</button>
+    <button class="tab"        data-tab="switching"  role="tab" aria-selected="false">Drug Switching</button>
+    <button class="tab tab-guide-btn" data-tab="guide" role="tab" aria-selected="false">&#9432; How to Use</button>
+  </nav>
+
+  <main>
+    <section id="tab-selection"  class="tab-panel active" role="tabpanel"></section>
+    <section id="tab-counseling" class="tab-panel"        role="tabpanel"></section>
+    <section id="tab-switching"  class="tab-panel"        role="tabpanel"></section>
+    <section id="tab-guide"      class="tab-panel"        role="tabpanel"></section>
+  </main>
+
+  <footer>
+    <p id="citation-text"></p>
+    <p class="disclaimer">For educational purposes only. Clinical decisions should integrate individual patient context.</p>
+    <p class="data-note">GRADE certainty ratings shown where available. NNH = number needed to harm.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
