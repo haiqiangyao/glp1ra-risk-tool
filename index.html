@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GLP-1RA GI Tolerability Decision Aid</title>
+<title>GLP-1RA Gastrointestinal Tolerability Counseling Aid</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -203,13 +203,47 @@ footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--border);fon
 .drug-hero-name{font-size:1.4rem;font-weight:800;color:var(--accent-dark);letter-spacing:-0.02em;line-height:1.1}
 .drug-hero-zh{font-size:0.88rem;color:var(--accent);font-weight:600;margin-top:0.08rem}
 .drug-hero-sub{font-size:0.79rem;color:var(--text-muted);margin-top:0.22rem;line-height:1.4}
-.risk-or-strip{display:flex;align-items:center;gap:0.5rem;margin:0.4rem 0 0.6rem}
-.risk-or-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);white-space:nowrap;min-width:1.8em}
-.risk-or-track{flex:1;height:7px;border-radius:4px;background:var(--surface-alt);overflow:hidden;position:relative}
-.risk-or-fill{height:100%;border-radius:4px;position:absolute;left:0;top:0;opacity:0.65}
-.risk-or-val{font-size:0.8rem;font-weight:700;color:var(--text);min-width:3.2em;text-align:right}
 .profile-pill-icon{display:inline-flex;width:18px;height:18px;align-items:center;justify-content:center;flex-shrink:0;opacity:0.6;vertical-align:middle}
 .outcome-pill-icon{display:inline-flex;width:16px;height:16px;align-items:center;justify-content:center;flex-shrink:0;opacity:0.7;vertical-align:middle}
+/* OR mini forest plot */
+.or-forest{margin:0.55rem 0 0.85rem;padding:0.55rem 0.8rem 0.45rem;background:var(--surface-alt);border-radius:9px;border:1px solid var(--border-soft)}
+.or-forest-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.35rem}
+.or-forest-label{font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted)}
+.or-forest-or-val{font-size:0.9rem;font-weight:800}
+.or-forest-track{height:10px;border-radius:5px;background:rgba(0,0,0,.09);position:relative;overflow:visible;margin-bottom:2px}
+.or-forest-ci-fill{position:absolute;top:0;height:100%;border-radius:5px;opacity:0.35}
+.or-forest-ref-line{position:absolute;top:-5px;bottom:-5px;width:2px;border-radius:1px;background:rgba(60,48,40,.5);transform:translateX(-50%);z-index:1}
+.or-forest-dot{position:absolute;top:50%;width:14px;height:14px;border-radius:50%;border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.28);transform:translate(-50%,-50%);z-index:2}
+.or-forest-ticks{position:relative;height:16px;margin-top:3px}
+.or-forest-tick{position:absolute;font-size:0.62rem;color:var(--text-muted);transform:translateX(-50%);white-space:nowrap}
+.or-forest-ref-tick{font-weight:800;color:var(--text)}
+.or-forest-ci-text{font-size:0.73rem;color:var(--text-muted);margin-top:0.25rem;text-align:center}
+/* 26-week ARD note */
+.ard-note{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.74rem;color:var(--text-muted);font-style:italic;padding:0.28rem 0.65rem;background:rgba(107,85,72,.06);border-left:2px solid var(--border);border-radius:0 5px 5px 0;margin-bottom:0.7rem}
+/* No absolute risk note (GERD) */
+.no-abs-note{font-size:0.84rem;color:var(--text-muted);font-style:italic;padding:0.4rem 0.7rem;background:rgba(107,85,72,.05);border-left:2px solid var(--border-soft);border-radius:0 5px 5px 0;margin:0.3rem 0 0.6rem}
+/* Guide tab navigation links */
+.guide-card-link{display:inline-flex;align-items:center;gap:0.25rem;margin-top:0.6rem;font-size:0.78rem;font-weight:700;color:var(--accent);border:1px solid var(--border);border-radius:20px;padding:0.18rem 0.7rem;background:var(--surface-alt);cursor:pointer;font-family:inherit;transition:background .15s,color .15s;text-decoration:none;line-height:1.4}
+.guide-card-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.guide-section-link{font-size:0.72rem;font-weight:600;color:var(--accent);background:var(--surface-alt);border:1px solid var(--border);border-radius:20px;padding:0.1rem 0.55rem;cursor:pointer;font-family:inherit;margin-left:0.6rem;vertical-align:middle;white-space:nowrap;transition:background .15s,color .15s}
+.guide-section-link:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+/* Matrix visual demo */
+.matrix-demo{display:flex;flex-direction:column;gap:0.45rem;margin:0.65rem 0}
+.matrix-demo-row{display:flex;align-items:center;gap:0.9rem;padding:0.5rem 0.85rem;border-radius:8px;background:var(--surface);border:1px solid var(--border-soft)}
+.matrix-demo-cell{min-width:38px;height:38px;display:flex;align-items:center;justify-content:center;border-radius:7px;font-size:1.15rem;font-weight:900;flex-shrink:0}
+.mdc-lower{background:rgba(39,174,96,.15);color:#27ae60}
+.mdc-higher{background:rgba(192,57,43,.12);color:#c0392b}
+.mdc-neutral{background:rgba(0,0,0,.06);color:var(--text-muted)}
+.matrix-demo-text{font-size:0.86rem;color:var(--text);line-height:1.45}
+.matrix-demo-text strong{color:var(--accent-dark)}
+/* Switching verdict visual demo */
+.switch-vis{display:flex;flex-direction:column;gap:0.45rem;margin:0.65rem 0}
+.switch-vis-item{display:flex;align-items:flex-start;gap:0.8rem;padding:0.5rem 0.85rem;border-radius:8px;background:var(--surface);border:1px solid var(--border-soft)}
+.switch-vis-icon{font-size:1.15rem;flex-shrink:0;line-height:1.4}
+.switch-vis-text{font-size:0.86rem;color:var(--text);line-height:1.45}
+.switch-vis-text strong{color:var(--accent-dark)}
+/* Guide card icon */
+.guide-card-icon{font-size:1.5rem;display:block;margin-bottom:0.3rem;line-height:1}
 </style>
 </head>
 <body>
@@ -220,8 +254,8 @@ footer{margin-top:2.2rem;padding-top:1rem;border-top:1px solid var(--border);fon
     <span class="lang-sep">|</span>
     <button id="lang-zh" class="lang-btn" onclick="setLang('zh')">中文</button>
   </div>
-  <h1>GLP-1RA Gastrointestinal Tolerability Decision Aid</h1>
-  <p class="subtitle">Network meta-analysis &middot; 225 RCTs &middot; 119,474 participants &middot; 35 agents</p>
+  <h1>GLP-1RA Gastrointestinal Tolerability Counseling Aid</h1>
+  <p class="subtitle">Network meta-analysis &middot; 225 RCTs &middot; 119,474 participants &middot; 35 agents (tool displays 9 with full NMA data; see manuscript for all agents)</p>
 </header>
 <nav class="tabs" role="tablist">
   <button class="tab active" data-tab="selection" role="tab" aria-selected="true">Drug Selection</button>
@@ -290,8 +324,8 @@ const OUTCOME_ICONS_SVG = {
 
 // Profile icons (Step 1 GI-history checkboxes) — same SVG as above for matching conditions
 const PROFILE_ICONS_SVG = {
-  "Nausea intolerance":  SHARED_CONDITION_ICONS["Nausea"],
-  "Vomiting intolerance": SHARED_CONDITION_ICONS["Vomiting"],
+  "Nausea":  SHARED_CONDITION_ICONS["Nausea"],
+  "Vomiting": SHARED_CONDITION_ICONS["Vomiting"],
   "Diarrhea / IBS-D":   SHARED_CONDITION_ICONS["Diarrhea"],
   "Constipation":        SHARED_CONDITION_ICONS["Constipation"],
   "Dyspepsia / Abdominal pain": SHARED_CONDITION_ICONS["Dyspepsia"],
@@ -302,12 +336,12 @@ const PROFILE_ICONS_SVG = {
 // ─── Table 2 profile data ─────────────────────────────────────────────────────
 // Derived directly from manuscript Table 2 (high/moderate-certainty evidence only)
 const TABLE2 = {
-  "Nausea intolerance":{
+  "Nausea":{
     lower:["Liraglutide","Dulaglutide"],
     higher:["Orforglipron","Tirzepatide","Semaglutide"],
     note:"Orforglipron: investigational (phase 2 only); NNH = 2.8 for nausea"
   },
-  "Vomiting intolerance":{
+  "Vomiting":{
     lower:["Liraglutide","Dulaglutide"],
     higher:["Orforglipron","Tirzepatide","Semaglutide"],
     note:null
@@ -343,8 +377,8 @@ const TABLE2 = {
 const MATRIX_DRUGS = ["Dulaglutide","Liraglutide","Exenatide","Lixisenatide","Semaglutide","Tirzepatide","Orforglipron","Efpeglenatide","Survodutide"];
 
 const PROFILE_ZH={
-  "Nausea intolerance":"恶心不耐受",
-  "Vomiting intolerance":"呕吐不耐受",
+  "Nausea":"恶心",
+  "Vomiting":"呕吐",
   "Diarrhea / IBS-D":"腹泻 / 肠易激综合征（腹泻型）",
   "Constipation":"便秘",
   "Dyspepsia / Abdominal pain":"消化不良 / 腹痛",
@@ -352,8 +386,8 @@ const PROFILE_ZH={
   "Biliary disease (cholecystitis / cholelithiasis)":"胆道疾病（胆囊炎 / 胆石症）"
 };
 const PROFILE_TO_OUTCOME={
-  "Nausea intolerance":"Nausea",
-  "Vomiting intolerance":"Vomiting",
+  "Nausea":"Nausea",
+  "Vomiting":"Vomiting",
   "Diarrhea / IBS-D":"Diarrhea",
   "Constipation":"Constipation",
   "GERD / Reflux":"GERD"
@@ -462,7 +496,7 @@ const LIFESTYLE = {
 // ─── Drug data ────────────────────────────────────────────────────────────────
 const DATA = {
   meta:{
-    title:"GLP-1RA Gastrointestinal Tolerability Decision Aid",
+    title:"GLP-1RA Gastrointestinal Tolerability Counseling Aid",
     citation:"Wan JY, Yao HQ et al. Gastrointestinal Adverse Events Associated With GLP-1 Receptor Agonists: A Network Meta-analysis of Randomized Controlled Trials. 2026.",
     n_rcts:225,n_participants:119474,generated:"2026-05-04"
   },
@@ -543,6 +577,9 @@ const DATA = {
     }
   }
 };
+
+// ─── Tab render cache (prevent re-render on tab switch; reset on lang change) ─
+const _tabRendered=new Set();
 
 // ─── Utilities ────────────────────────────────────────────────────────────────
 function computeARD(or, base) {
@@ -639,8 +676,11 @@ const UI={
     risk_heading:"Risk Summary & Lifestyle Guidance (by Outcome)",
     no_data:"No outcome data available for this drug.",print_btn:"🖨 Print Patient Summary",
     lifestyle_heading:"Lifestyle Guidance",refs_heading:"References",
+    ard_note:"Absolute risk estimates standardized to 26-week follow-up · For reference only",
+    no_abs_gerd:"Absolute risk not calculable — GERD baseline rate unconfirmed. Interpret OR with caution (see Important Caveats in How to Use).",
+    gerd_no_bar:"⚠ GERD excluded from chart: absolute risk not calculable (no confirmed baseline rate). OR data and lifestyle guidance are available in Patient Counseling.",
     additional:"additional",fewer:"fewer",
-    risk_stat:(drug,n,dir,o,nnh,or_t)=>`Among every 100 patients taking <strong>${drug}</strong>, approximately <strong>${n<1?'&lt;1':n}</strong> ${dir} ${o.toLowerCase()} cases are expected vs. control${nnh}. ${or_t}`,
+    risk_stat:(drug,n,dir,o,nnh,or_t)=>`Among every 1,000 patients taking <strong>${drug}</strong>, approximately <strong>${n<1?'&lt;1':n}</strong> ${dir} ${o.toLowerCase()} cases are expected vs. control${nnh}. ${or_t}`,
     symptom_check_heading:"Which symptoms are you currently experiencing?",
     symptom_check_hint:"Select to highlight the relevant guidance below.",
     current_drug:"Current Drug",intolerable:"Intolerable Symptoms — select all that apply",
@@ -662,11 +702,11 @@ const UI={
     t1_custom:"Custom (advanced)",
     t1_sel_all:"Select All",t1_clr_all:"Clear All",
     t1_chart_hint:"Mean additional GI events per 1,000 patients vs. control, averaged across selected outcomes. <em>Hover a bar to see GRADE certainty &amp; NNH.</em>",
-    t1_chart_note:"Values reflect absolute risk differences. Orforglipron is investigational (phase 2 data).",
+    t1_chart_note:"Sorted by GRADE certainty first (High → Moderate → Low → Very Low), then by event count within each tier. GRADE badges visible on bars. Orforglipron is investigational (phase 2 data).",
     t1_empty:"Select one or more GI history items above to see evidence-based drug suitability recommendations (Table 2, network meta-analysis).",
     t1_no_outcome:"Select one or more outcomes above to see the quantitative comparison chart.",
     t1_mat_drug:"Drug",t1_mat_rec:"Recommendation",
-    t1_mat_note:"✓ = comparatively lower risk &nbsp;|&nbsp; ✗ = comparatively higher risk &nbsp;|&nbsp; — = no high/moderate-certainty data<br>Based on manuscript Table 2. All GLP-1RAs increase GI adverse event rates vs. control; columns reflect within-class comparisons.",
+    t1_mat_note:"<span style='color:#27ae60;font-weight:900'>✓</span> lower risk within class &nbsp;&nbsp;<span style='color:#c0392b;font-weight:900'>✗</span> higher risk within class &nbsp;&nbsp;<span style='color:var(--text-muted)'>—</span> no high/moderate-certainty data<br><small>Within-class comparisons only. All GLP-1RAs increase GI adverse events vs. control (Table 2).</small>",
     t1_mat_note2:"<sup>†</sup> Orforglipron is investigational (phase 2 data only).",
     t1_tip_lower:"Comparatively lower risk within class",
     t1_tip_higher:"Comparatively higher risk within class",
@@ -677,8 +717,8 @@ const UI={
     nav_sym_of:(i,n)=>`Symptom ${i}/${n}`,
     tab_selection:"Drug Selection",tab_counseling:"Patient Counseling",
     tab_switching:"Drug Switching",tab_guide:"ⓘ How to Use",
-    page_title:"GLP-1RA Gastrointestinal Tolerability Decision Aid",
-    page_subtitle:"Network meta-analysis · 225 RCTs · 119,474 participants · 35 agents",
+    page_title:"GLP-1RA Gastrointestinal Tolerability Counseling Aid",
+    page_subtitle:"Network meta-analysis · 225 RCTs · 119,474 participants · 35 agents (tool displays 9 with full NMA data; see manuscript for all agents)",
     switch_no_data:"Insufficient data to compare alternatives for the selected symptoms.",
     switch_insuff:(drugs)=>`Insufficient data to classify: ${drugs}.`,
     switch_legend:"↓ = fewer events/1,000 vs. current drug &nbsp;|&nbsp; ↑ = more events/1,000 &nbsp;|&nbsp; = approximately equal<br>Differences ≤5 events/1,000 shown as equal (within noise). Numbers are absolute risk differences per 1,000 patients.<br><sup>†</sup> Orforglipron is investigational (phase 2 data only)."
@@ -690,8 +730,11 @@ const UI={
     risk_heading:"风险摘要与生活方式指导（按结局指标）",
     no_data:"该药物暂无结局数据。",print_btn:"🖨 打印患者摘要",
     lifestyle_heading:"生活方式指导",refs_heading:"参考文献",
+    ard_note:"绝对风险估计值已统一换算至26周随访 · 仅供参考",
+    no_abs_gerd:"绝对风险无法计算——GERD基线发生率未经确认。请谨慎解读OR值（详见「如何使用」中的重要注意事项）。",
+    gerd_no_bar:"⚠ GERD 已从图表中排除：因基线发生率未经确认，无法计算绝对风险。OR数据及生活方式指导可在「患者咨询」中查看。",
     additional:"增加",fewer:"减少",
-    risk_stat:(drug,n,dir,o,nnh,or_t)=>`在每100名服用<strong>${drug}</strong>的患者中，与对照组相比，预计约有<strong>${n<1?'&lt;1':n}</strong>例${OUTCOME_ZH[o]||o}病例${dir}${nnh}。${or_t}`,
+    risk_stat:(drug,n,dir,o,nnh,or_t)=>`在每1000名服用<strong>${drug}</strong>的患者中，与对照组相比，预计约有<strong>${n<1?'&lt;1':n}</strong>例${OUTCOME_ZH[o]||o}病例${dir}${nnh}。${or_t}`,
     symptom_check_heading:"您目前有哪些不适症状？",
     symptom_check_hint:"勾选后，相关建议将高亮显示。",
     current_drug:"当前用药",intolerable:"不耐受症状 — 请全部勾选",
@@ -713,11 +756,11 @@ const UI={
     t1_custom:"自定义（高级）",
     t1_sel_all:"全选",t1_clr_all:"清除",
     t1_chart_hint:"与对照组相比，每1000例患者额外消化道事件均值（所选结局指标平均）。<em>悬停条形图可查看GRADE证据确定性及NNH。</em>",
-    t1_chart_note:"数值反映绝对风险差异。Orforglipron为研究性药物（II期数据）。",
+    t1_chart_note:"按GRADE证据确定性排序（高→中→低→极低），同级别内再按事件数排序；条形图上标注GRADE等级。Orforglipron为研究性药物（II期数据）。",
     t1_empty:"请在上方勾选一项或多项消化道既往史，以查看基于证据的药物适宜性推荐（Table 2，网络荟萃分析）。",
     t1_no_outcome:"请在上方勾选一项或多项结局指标，以查看定量比较图。",
     t1_mat_drug:"药物",t1_mat_rec:"推荐意见",
-    t1_mat_note:"✓ = 类内相对低风险 &nbsp;|&nbsp; ✗ = 类内相对高风险 &nbsp;|&nbsp; — = 该特征无高/中等确定性数据<br>基于论文Table 2。所有GLP-1 RA均增加消化道不良事件风险（与对照组相比）；各列反映类内相对比较。",
+    t1_mat_note:"<span style='color:#27ae60;font-weight:900'>✓</span> 类内风险相对较低 &nbsp;&nbsp;<span style='color:#c0392b;font-weight:900'>✗</span> 类内风险相对较高 &nbsp;&nbsp;<span style='color:var(--text-muted)'>—</span> 无高/中等确定性证据<br><small>仅反映类内比较。所有GLP-1RA均增加消化道不良事件风险（与对照组相比，论文Table 2）。</small>",
     t1_mat_note2:"<sup>†</sup> Orforglipron为研究性药物（仅II期数据）。",
     t1_tip_lower:"类内相对较低风险",
     t1_tip_higher:"类内相对较高风险",
@@ -728,8 +771,8 @@ const UI={
     nav_sym_of:(i,n)=>`症状 ${i}/${n}`,
     tab_selection:"药物选择",tab_counseling:"患者咨询",
     tab_switching:"药物更换",tab_guide:"ⓘ 使用指南",
-    page_title:"GLP-1RA 胃肠道耐受性决策辅助工具",
-    page_subtitle:"网络荟萃分析 · 225项RCT · 119,474名受试者 · 35种药物",
+    page_title:"GLP-1RA 胃肠道耐受性咨询辅助工具",
+    page_subtitle:"网络荟萃分析 · 225项RCT · 119,474名受试者 · 35种药物（工具展示9种有完整NMA数据的药物；全部35种见原文）",
     switch_no_data:"暂无足够数据比较所选症状的替代药物。",
     switch_insuff:(drugs)=>`数据不足，无法分类：${drugs}。`,
     switch_legend:"↓ = 每1000例比当前药物减少事件数 &nbsp;|&nbsp; ↑ = 增加 &nbsp;|&nbsp; = 基本相当<br>差值≤5/1000视为相当（估计噪音范围内）。数值为每1000例患者绝对风险差值。<br><sup>†</sup> Orforglipron为研究性药物（仅II期数据）。"
@@ -780,6 +823,7 @@ function renderTab1(){
     </div>
     <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.4rem">${t('t1_chart_hint')}</p>
     <div id="t1-bars"></div>
+    <p id="t1-gerd-note" class="chart-note" style="display:none"></p>
     <p class="chart-note">${t('t1_chart_note')}</p>
   `;
   panel.querySelectorAll('.t1-profile').forEach(c=>c.addEventListener('change',e=>{
@@ -837,7 +881,7 @@ function updateTab1Profile(){
   const order=['v-preferred','v-mixed','v-caution','v-neutral'];
   rows.sort((a,b)=>order.indexOf(a.vClass)-order.indexOf(b.vClass));
 
-  const shortP=selected.map(p=>LANG==='zh'?(PROFILE_ZH[p]||p):p.replace(' intolerance','').replace(' / ','/'));
+  const shortP=selected.map(p=>LANG==='zh'?(PROFILE_ZH[p]||p):p.replace(' / ','/'));
   const headCols=shortP.map(p=>`<th>${p}</th>`).join('');
   const bodyRows=rows.map(r=>{
     const cells=r.indicators.map(ind=>{
@@ -846,7 +890,13 @@ function updateTab1Profile(){
       return `<td class="cell-neutral" data-tip="${t('t1_tip_neutral')}">—</td>`;
     }).join('');
     const inv=r.drug==='Orforglipron'?'<sup style="font-size:0.7rem;color:var(--amber)">†</sup>':'';
-    const verdictLabels={'v-preferred':t('t1_v_preferred'),'v-neutral':t('t1_v_neutral'),'v-mixed':t('t1_v_mixed'),'v-caution':t('t1_v_caution')};
+    const n=selected.length;
+    const verdictLabels={
+      'v-preferred':t('t1_v_preferred')+(r.lo>0?` (${r.lo}/${n})`:''),
+      'v-neutral':t('t1_v_neutral'),
+      'v-mixed':t('t1_v_mixed')+(r.lo>0||r.hi>0?` (${r.lo}✓ ${r.hi}✗)`:''),
+      'v-caution':t('t1_v_caution')+(r.hi>0?` (${r.hi}/${n}✗)`:'')
+    };
     return `<tr><td><strong>${drugLabel(r.drug)}</strong>${inv}</td>${cells}<td><span class="verdict-badge ${r.vClass}">${verdictLabels[r.vClass]}</span></td></tr>`;
   }).join('');
 
@@ -876,22 +926,32 @@ function updateTab1Chart(){
     selected.forEach(o=>{
       const cell=outcomes[o]; if(!cell) return;
       const abs=cell.abs_per1000??computeARD(cell.or,baselines[o]);
-      if(abs!==null){ total+=Math.max(0,abs); count++; }
+      if(abs!==null){ total+=abs; count++; }
       if(cell.grade) grades.push(cell.grade);
     });
     const score=count?Math.round(total/count):null;
     const nnh=selected.map(o=>outcomes[o]?.nnh).find(v=>v!=null)??null;
     return {drug,score,grade:bestGrade(grades),nnh};
-  }).filter(d=>d.score!==null).sort((a,b)=>b.score-a.score);
+  }).filter(d=>d.score!==null).sort((a,b)=>{
+    const gA=GRADE_ORDER.indexOf(a.grade||'very_low');
+    const gB=GRADE_ORDER.indexOf(b.grade||'very_low');
+    if(gA!==gB) return gA-gB;
+    return b.score-a.score;
+  });
 
   const items=scores.map(d=>({
-    label:drugLabel(d.drug),
+    label:drugLabel(d.drug)+(d.grade?` <span class="grade-badge grade-${d.grade}" style="font-size:0.62rem;padding:0.07rem 0.32rem;vertical-align:middle" data-tip="${(LANG==='zh'?GRADE_TIPS_ZH:GRADE_TIPS)[d.grade]||''}">${gradeLabel(d.grade)}</span>`:''),
     value:d.score,
-    color:DRUG_COLORS[d.drug]||'#bbb',
-    meta:`GRADE: ${gradeLabel(d.grade)}${d.nnh?' · NNH ≈ '+d.nnh:''}`,
-    tip:`${drugLabel(d.drug)}: +${d.score} events/1,000 · GRADE: ${gradeLabel(d.grade)}${d.nnh?' · NNH ≈ '+d.nnh:''}`
+    color:d.score<0?'#4a7c59':(DRUG_COLORS[d.drug]||'#bbb'),
+    meta:d.grade?`GRADE: ${gradeLabel(d.grade)}${d.nnh?' · NNH ≈ '+d.nnh:''}`:(d.nnh?`NNH ≈ ${d.nnh}`:''),
+    tip:`${drugLabel(d.drug)}: +${d.score} events/1,000${d.grade?' · GRADE: '+gradeLabel(d.grade):''}${d.nnh?' · NNH ≈ '+d.nnh:''}`
   }));
   renderBars('t1-bars',items);
+  const gerdNote=document.getElementById('t1-gerd-note');
+  if(gerdNote){
+    if(selected.includes('GERD')){gerdNote.innerHTML=t('gerd_no_bar');gerdNote.style.display='';}
+    else gerdNote.style.display='none';
+  }
 }
 
 // ─── Tab 2: Patient Counseling ────────────────────────────────────────────────
@@ -944,6 +1004,43 @@ function renderTab2(){
   updateTab2();
 }
 
+function renderORForest(cell,color){
+  if(!cell||!cell.or) return '';
+  // Adaptive upper bound: extend scale if OR or CI upper exceeds 4.0
+  const scaleMax=Math.max(4,(cell.ci_high||0),cell.or)*1.05;
+  const scaleMin=0.25;
+  const LOG_MIN=Math.log(scaleMin),LOG_RANGE=Math.log(scaleMax)-LOG_MIN;
+  const pos=v=>Math.max(0,Math.min(100,(Math.log(v)-LOG_MIN)/LOG_RANGE*100));
+  const refPos=pos(1.0);
+  const dotPos=pos(cell.or);
+  const loPos=cell.ci_low?pos(cell.ci_low):dotPos;
+  const hiPos=cell.ci_high?pos(cell.ci_high):dotPos;
+  const dotColor=(cell.or>=1)?(color||'var(--accent)'):'#27ae60';
+  // Generate adaptive tick marks
+  const candidateTicks=[0.25,0.5,1.0,2.0,4.0,8.0,16.0,32.0,64.0];
+  const ticks=candidateTicks.filter(v=>v>=scaleMin*0.9&&v<=scaleMax);
+  const ciLine=(cell.ci_low&&cell.ci_high)?`<div class="or-forest-ci-text">95% CI: ${cell.ci_low}&ndash;${cell.ci_high}</div>`:'';
+  const orTrunc=cell.or>4;
+  const ciTrunc=cell.ci_high&&cell.ci_high>4;
+  const truncNote=(orTrunc||ciTrunc)?`<div style="font-size:0.7rem;color:var(--amber);margin-top:0.18rem">⚠ ${orTrunc?`OR ${cell.or.toFixed(2)} exceeds standard 0.25–4 scale`:''} ${ciTrunc?(orTrunc?'· ':'')+`CI upper ${cell.ci_high} extends beyond 4`:''} — scale expanded</div>`:'';
+  return `<div class="or-forest">
+    <div class="or-forest-header">
+      <span class="or-forest-label">Odds Ratio (log scale)</span>
+      <span class="or-forest-or-val" style="color:${dotColor}">OR&nbsp;=&nbsp;${cell.or.toFixed(2)}</span>
+    </div>
+    <div class="or-forest-track">
+      <div class="or-forest-ci-fill" style="left:${loPos.toFixed(1)}%;width:${Math.max(0,hiPos-loPos).toFixed(1)}%;background:${dotColor}"></div>
+      <div class="or-forest-ref-line" style="left:${refPos.toFixed(1)}%"></div>
+      <div class="or-forest-dot" style="left:${dotPos.toFixed(1)}%;background:${dotColor}"></div>
+    </div>
+    <div class="or-forest-ticks">
+      ${ticks.map(tick=>`<span class="or-forest-tick${tick===1.0?' or-forest-ref-tick':''}" style="left:${pos(tick).toFixed(1)}%">${tick===1.0?'<strong>1.0</strong>':tick}</span>`).join('')}
+    </div>
+    ${ciLine}
+    ${truncNote}
+  </div>`;
+}
+
 function updateTab2(){
   const drug=document.getElementById('t2-drug')?.value;
   if(!drug||!DATA.drugs[drug]) return;
@@ -952,22 +1049,20 @@ function updateTab2(){
 
   // Build risk cards for outcomes with data
   const cardHtml=OUTCOMES.map(o=>{
-    const cell=drugData[o]; if(!cell) return '';
+    const cell=drugData[o]; if(!cell||!cell.or) return '';
     const abs=cell.abs_per1000??computeARD(cell.or,baselines[o]);
-    if(abs===null) return '';
+    const hasAbs=abs!==null;
     const life=getLIFE(o);
     const refs=LIFESTYLE[o].refs; // refs always in English
-    const per100=Math.round(Math.abs(abs)/10);
-    const dir=abs>=0?t('additional'):t('fewer');
+    const perK=hasAbs?Math.abs(abs):null;
+    const dir=hasAbs?(abs>=0?t('additional'):t('fewer')):null;
     const nnh=cell.nnh?` (NNH&nbsp;&asymp;&nbsp;${cell.nnh})`:'';
-    const or_t=cell.or?`(OR&nbsp;${cell.or}; 95%&nbsp;CI&nbsp;${cell.ci_low}&ndash;${cell.ci_high})`:'';
     const refHtml=refs.map(r=>{
       const link=r.pmid?`<a href="https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/" target="_blank" rel="noopener">PMID&nbsp;${r.pmid}</a>`:'';
       return `<div class="ref-item">${r.text}${link?` [${link}]`:''}</div>`;
     }).join('');
     const cardId='t2-card-'+o.replace(/[\s\/]+/g,'-');
     const oLabel=LANG==='zh'?(OUTCOME_ZH[o]||o):o;
-    const orPct=cell.or?Math.min(100,((cell.or-1)/11)*100).toFixed(1):'0';
     return `
       <div class="risk-card" id="${cardId}" data-outcome="${o}">
         <div class="risk-card-header">
@@ -975,12 +1070,8 @@ function updateTab2(){
           <span class="risk-outcome-name">${oLabel}</span>
           ${gradeBadge(cell.grade)}
         </div>
-        <div class="risk-or-strip">
-          <span class="risk-or-label">OR</span>
-          <div class="risk-or-track"><div class="risk-or-fill" style="width:${orPct}%;background:${OUTCOME_COLORS[o]||'var(--accent)'}"></div></div>
-          <span class="risk-or-val">${cell.or?cell.or.toFixed(2):'—'}</span>
-        </div>
-        <div class="risk-stat">${t('risk_stat')(drug,per100,dir,o,nnh,or_t)}</div>
+        ${renderORForest(cell,OUTCOME_COLORS[o])}
+        ${hasAbs?`<div class="risk-stat">${t('risk_stat')(drug,perK,dir,o,nnh,'')}</div>`:`<div class="no-abs-note">&#9432; ${t('no_abs_gerd')}</div>`}
         <div class="risk-mechanism">${life.plain}</div>
         <div class="tips-heading">${t('lifestyle_heading')}</div>
         <ol class="tips-list">${life.tips.map(tip=>`<li>${tip}</li>`).join('')}</ol>
@@ -1001,9 +1092,9 @@ function updateTab2(){
     if(abs===null) return null;
     const cardId='t2-card-'+o.replace(/[\s\/]+/g,'-');
     const oLabel=LANG==='zh'?(OUTCOME_ZH[o]||o):o;
-    return {label:oLabel,value:abs,color:OUTCOME_COLORS[o]||'#bbb',
-      meta:`${abs>0?'+':''}${abs} per 1,000 · GRADE: ${gradeLabel(cell.grade)}`,
-      tip:`${oLabel}: ${abs>0?'+':''}${abs}/1,000 · GRADE: ${gradeLabel(cell.grade)} — click for guidance`,
+    return {label:oLabel,value:abs,color:abs<0?'#4a7c59':(OUTCOME_COLORS[o]||'#bbb'),
+      meta:`${abs>0?'+':''}${abs} per 1,000${cell.grade?' · GRADE: '+gradeLabel(cell.grade):''}${abs<0?' (protective signal)':''}`,
+      tip:`${oLabel}: ${abs>0?'+':''}${abs}/1,000${cell.grade?' · GRADE: '+gradeLabel(cell.grade):''}${abs<0?' — fewer events than control (protective)':''} — click for guidance`,
       onclick:`document.getElementById('${cardId}')?.scrollIntoView({behavior:'smooth',block:'start'})`};
   }).filter(Boolean);
 
@@ -1011,7 +1102,7 @@ function updateTab2(){
   document.getElementById('t2-content').innerHTML=`
     <div class="print-header">
       <h2>${drugLabel(drug)} — ${LANG==='zh'?'患者须知':'Patient Information Sheet'}</h2>
-      <p>GLP-1RA GI Tolerability Decision Aid &middot; ${printDate}</p>
+      <p>GLP-1RA Gastrointestinal Tolerability Counseling Aid &middot; ${printDate}</p>
       <p>${LANG==='zh'?'仅供教育参考，请结合医生建议使用。':'For educational purposes only. Discuss with your healthcare provider.'}</p>
     </div>
     <div class="drug-hero">
@@ -1020,11 +1111,12 @@ function updateTab2(){
       <div>
         <div class="drug-hero-name">${drugLabel(drug)}</div>
         ${LANG==='zh'&&DRUG_ZH[drug]?`<div class="drug-hero-zh">${drug}</div>`:''}
-        <div class="drug-hero-sub">${LANG==='zh'?`风险数据：${DATA.meta.n_rcts}项RCT · ${DATA.meta.n_participants.toLocaleString()}名受试者`:`Based on ${DATA.meta.n_rcts} RCTs · ${DATA.meta.n_participants.toLocaleString()} participants`}${drug==='Orforglipron'?` · <span style="color:var(--amber);font-weight:700">${LANG==='zh'?'⚠ 研究性药物（II期）':'⚠ Investigational (Ph.2)'}</span>`:''}</div>
+        <div class="drug-hero-sub">${LANG==='zh'?`风险数据：${DATA.meta.n_rcts}项RCT · ${DATA.meta.n_participants.toLocaleString()}名受试者`:`Based on ${DATA.meta.n_rcts} RCTs · ${DATA.meta.n_participants.toLocaleString()} participants`}${drug==='Orforglipron'?` · <span style="color:var(--amber);font-weight:700">${LANG==='zh'?'⚠ 研究性药物（II期）':'⚠ Investigational (Ph.2)'}</span>`:''}${drug==='Semaglutide'?` · <span style="color:var(--amber)">${LANG==='zh'?'⚠ 口服与皮下注射合并分析，给药途径未分层':'⚠ Oral and SC routes pooled — route not differentiated in NMA'}</span>`:''}</div>
       </div>
     </div>
+    <p class="ard-note" style="margin-top:0.5rem">&#9432; ${t('ard_note')} &nbsp;<button class="guide-card-link" style="font-size:0.74rem;padding:0.12rem 0.55rem;margin-top:0" onclick="document.querySelector('[data-tab=selection]').click()">${LANG==='zh'?'← 药物选择':'← Drug Selection'}</button></p>
     <div id="t2-overview-section">
-      <p class="section-heading" style="margin-top:1rem">${t('overview_heading')}</p>
+      <p class="section-heading" style="margin-top:0.6rem">${t('overview_heading')}</p>
       <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.4rem">${t('overview_hint')}</p>
       <div id="t2-bars"></div>
     </div>
@@ -1149,6 +1241,7 @@ function updateTab3(){
     html+=`<p class="chart-note" style="margin-top:0.6rem">${typeof fn==='function'?fn(nodat.map(a=>drugLabel(a.drug)).join(', ')):fn}</p>`;
   }
   html+=`<p class="chart-note" style="margin-top:0.8rem">${t('switch_legend')}</p>`;
+  html+=`<p class="chart-note" style="margin-top:0.4rem;color:var(--text-muted)">${LANG==='zh'?'<strong>±5/1000 阈值说明：</strong>差值 ≤ 5 事件/1000 例患者视为临床等效（在网络荟萃分析估计误差范围内）。此阈值代表合理的临床噪音边界；若患者对微小差异高度敏感，可在选药时直接参考绝对风险差值数字。':'<strong>±5/1000 threshold:</strong> Differences ≤ 5 events/1,000 patients are treated as clinically equivalent (within NMA estimation noise). This boundary is a pragmatic noise floor; for patients highly sensitive to small differences, refer to the absolute risk difference numbers directly.'}</p>`;
   resultsEl.innerHTML=html;
 }
 
@@ -1159,38 +1252,66 @@ function renderTab4(){
     <h2 class="guide-section-title">工具功能概览</h2>
     <div class="guide-cards">
       <div class="guide-card">
+        <span class="guide-card-icon">🩺</span>
         <h3>药物选择</h3>
-        <p><strong>步骤一：</strong>勾选患者消化道既往史，获取直接来自网络荟萃分析 Table 2 的药物适宜性矩阵（优先选择 / 谨慎使用 / 避免）。<br>
+        <p><strong>步骤一：</strong>勾选患者消化道既往史，获取直接来自 NMA Table 2 的药物适宜性矩阵（优先选择 / 谨慎使用 / 避免）。<br>
         <strong>步骤二：</strong>使用定量风险图表比较所有药物的绝对风险差异。</p>
-        <span class="guide-tag">医师视角</span>
+        <span class="guide-tag">医师视角</span><br>
+        <button class="guide-card-link" onclick="document.querySelector('[data-tab=selection]').click()">→ 前往药物选择</button>
       </div>
       <div class="guide-card">
+        <span class="guide-card-icon">💬</span>
         <h3>患者咨询</h3>
-        <p>选择患者当前用药。对每个有数据的消化道结局，工具提供通俗风险说明、生理机制、分步生活方式建议及 PubMed 链接参考文献。</p>
-        <span class="guide-tag">患者视角</span>
+        <p>选择患者当前用药。对每个有数据的消化道结局，工具提供通俗风险说明、生理机制、分步生活方式建议及 PubMed 参考文献。</p>
+        <span class="guide-tag">患者视角</span><br>
+        <button class="guide-card-link" onclick="document.querySelector('[data-tab=counseling]').click()">→ 前往患者咨询</button>
       </div>
       <div class="guide-card">
+        <span class="guide-card-icon">🔄</span>
         <h3>药物更换</h3>
         <p>选择当前用药及<em>所有</em>不耐受症状（多选）。系统根据综合获益将备选药物分为<strong>推荐更换 / 谨慎考虑 / 不推荐更换</strong>。</p>
-        <span class="guide-tag">不耐受评估</span>
+        <span class="guide-tag">不耐受评估</span><br>
+        <button class="guide-card-link" onclick="document.querySelector('[data-tab=switching]').click()">→ 前往药物更换</button>
       </div>
     </div>
 
-    <h2 class="guide-section-title">如何读取适宜性矩阵</h2>
-    <div class="tips-box"><ul>
-      <li>✓（绿色）= 在 GLP-1RA 类内，该患者特征下相对<em>较低</em>风险</li>
-      <li>✗（红色）= 相对<em>较高</em>风险；除非临床获益超过风险，否则应考虑替代方案</li>
-      <li>— = 该特征无高 / 中等确定性 NMA 证据；既不支持也不排除</li>
-      <li>矩阵仅包含已批准或进入高级监管阶段、具有高 / 中等确定性证据的药物（论文 Table 2）</li>
-    </ul></div>
+    <h2 class="guide-section-title">矩阵图例：符号含义
+      <button class="guide-section-link" onclick="document.querySelector('[data-tab=selection]').click()">→ 药物选择</button>
+    </h2>
+    <div class="matrix-demo">
+      <div class="matrix-demo-row">
+        <div class="matrix-demo-cell mdc-lower">✓</div>
+        <div class="matrix-demo-text"><strong>类内优选</strong> — NMA 证据显示，该患者特征下此药 GI 风险在 GLP-1RA 类内相对较低</div>
+      </div>
+      <div class="matrix-demo-row">
+        <div class="matrix-demo-cell mdc-higher">✗</div>
+        <div class="matrix-demo-text"><strong>谨慎使用</strong> — 类内风险相对较高；除非临床获益明确超过风险，否则应考虑替代方案</div>
+      </div>
+      <div class="matrix-demo-row">
+        <div class="matrix-demo-cell mdc-neutral">—</div>
+        <div class="matrix-demo-text"><strong>证据不足</strong> — 该特征无高 / 中等确定性 NMA 证据；既不支持也不排除</div>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.2rem">所有 GLP-1RA 均使 GI 不良事件率高于对照组；矩阵单元格反映的是<em>类内</em>比较（论文 Table 2）。</p>
 
-    <h2 class="guide-section-title">如何读取换药建议</h2>
-    <div class="tips-box"><ul>
-      <li><strong>✅ 推荐更换：</strong>备选药物在<em>所有</em>有数据的不耐受症状上风险更低或相当</li>
-      <li><strong>⚠ 谨慎考虑：</strong>改善症状多于加重症状，但并非全部——需结合患者优先级权衡利弊</li>
-      <li><strong>❌ 不推荐更换：</strong>大多数不耐受症状风险更高；仅在其他临床因素占主导时考虑</li>
-      <li>差值 ≤ 5/1000 例患者视为相当（在估计噪音范围内）</li>
-    </ul></div>
+    <h2 class="guide-section-title">如何读取换药建议
+      <button class="guide-section-link" onclick="document.querySelector('[data-tab=switching]').click()">→ 药物更换</button>
+    </h2>
+    <div class="switch-vis">
+      <div class="switch-vis-item">
+        <span class="switch-vis-icon">✅</span>
+        <div class="switch-vis-text"><strong>推荐更换</strong> — 备选药物在<em>所有</em>有数据的不耐受症状上风险更低或相当</div>
+      </div>
+      <div class="switch-vis-item">
+        <span class="switch-vis-icon">⚠️</span>
+        <div class="switch-vis-text"><strong>谨慎考虑</strong> — 改善症状多于加重症状，但并非全部；需结合患者优先级权衡利弊</div>
+      </div>
+      <div class="switch-vis-item">
+        <span class="switch-vis-icon">❌</span>
+        <div class="switch-vis-text"><strong>不推荐更换</strong> — 大多数不耐受症状风险更高；仅在其他临床因素占主导时考虑</div>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.2rem">差值 ≤ 5/1000 例患者视为相当（在估计噪音范围内）。</p>
 
     <h2 class="guide-section-title">GRADE 证据确定性</h2>
     <div class="grade-legend-grid">
@@ -1224,38 +1345,66 @@ function renderTab4(){
     <h2 class="guide-section-title">What This Tool Does</h2>
     <div class="guide-cards">
       <div class="guide-card">
+        <span class="guide-card-icon">🩺</span>
         <h3>Drug Selection</h3>
-        <p><strong>Step 1:</strong> Check patient GI history to get a suitability matrix drawn directly from the NMA Table 2 (evidence-based preferred / caution / avoid).<br>
+        <p><strong>Step 1:</strong> Check patient GI history to get a suitability matrix drawn directly from NMA Table 2 (preferred / caution / avoid).<br>
         <strong>Step 2:</strong> Use the quantitative burden chart to compare all agents on absolute risk.</p>
-        <span class="guide-tag">PHYSICIAN VIEW</span>
+        <span class="guide-tag">PHYSICIAN VIEW</span><br>
+        <button class="guide-card-link" onclick="document.querySelector('[data-tab=selection]').click()">→ Open Drug Selection</button>
       </div>
       <div class="guide-card">
+        <span class="guide-card-icon">💬</span>
         <h3>Patient Counseling</h3>
-        <p>Select the patient's current drug. For each GI outcome with data, the tool provides a plain-language risk statement, the physiological mechanism, numbered lifestyle tips, and PubMed-linked references.</p>
-        <span class="guide-tag">PATIENT VIEW</span>
+        <p>Select the patient's current drug. For each GI outcome, the tool provides a plain-language risk statement, the physiological mechanism, numbered lifestyle tips, and PubMed references.</p>
+        <span class="guide-tag">PATIENT VIEW</span><br>
+        <button class="guide-card-link" onclick="document.querySelector('[data-tab=counseling]').click()">→ Open Patient Counseling</button>
       </div>
       <div class="guide-card">
+        <span class="guide-card-icon">🔄</span>
         <h3>Drug Switching</h3>
-        <p>Select the current drug and <em>all</em> intolerable symptoms (multi-select). Alternatives are categorized as <strong>Recommended / Caution / Not Recommended</strong> based on net benefit across all selected symptoms.</p>
-        <span class="guide-tag">INTOLERANCE</span>
+        <p>Select the current drug and <em>all</em> intolerable symptoms (multi-select). Alternatives are categorized as <strong>Recommended / Caution / Not Recommended</strong> based on net benefit.</p>
+        <span class="guide-tag">INTOLERANCE</span><br>
+        <button class="guide-card-link" onclick="document.querySelector('[data-tab=switching]').click()">→ Open Drug Switching</button>
       </div>
     </div>
 
-    <h2 class="guide-section-title">Reading the Suitability Matrix</h2>
-    <div class="tips-box"><ul>
-      <li>✓ (green) = comparatively <em>lower</em> risk within the GLP-1RA class for that patient profile</li>
-      <li>✗ (red) = comparatively <em>higher</em> risk; consider alternative unless clinical benefit outweighs risk</li>
-      <li>— = no high/moderate-certainty NMA evidence for that profile; neither favour nor contraindicate</li>
-      <li>The matrix is restricted to approved/advanced-regulatory-status agents with high- or moderate-certainty evidence (manuscript Table 2)</li>
-    </ul></div>
+    <h2 class="guide-section-title">Suitability Matrix — Symbol Key
+      <button class="guide-section-link" onclick="document.querySelector('[data-tab=selection]').click()">→ Drug Selection</button>
+    </h2>
+    <div class="matrix-demo">
+      <div class="matrix-demo-row">
+        <div class="matrix-demo-cell mdc-lower">✓</div>
+        <div class="matrix-demo-text"><strong>Preferred within class</strong> — NMA evidence shows comparatively lower GI risk for this patient profile vs. other GLP-1RAs</div>
+      </div>
+      <div class="matrix-demo-row">
+        <div class="matrix-demo-cell mdc-higher">✗</div>
+        <div class="matrix-demo-text"><strong>Use with caution</strong> — Comparatively higher risk within class; consider an alternative unless clinical benefit clearly outweighs</div>
+      </div>
+      <div class="matrix-demo-row">
+        <div class="matrix-demo-cell mdc-neutral">—</div>
+        <div class="matrix-demo-text"><strong>Insufficient evidence</strong> — No high/moderate-certainty NMA data for this profile; does not favour or contraindicate</div>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.2rem">All GLP-1RAs increase GI adverse event rates vs. control. Matrix cells reflect <em>within-class</em> comparisons only (manuscript Table 2).</p>
 
-    <h2 class="guide-section-title">Reading the Switching Output</h2>
-    <div class="tips-box"><ul>
-      <li><strong>✅ Recommended:</strong> alternative shows better or equivalent risk for <em>every</em> intolerable symptom with available data</li>
-      <li><strong>⚠ Caution:</strong> better on more symptoms than worse, but not all — weigh the trade-off against patient priorities</li>
-      <li><strong>❌ Not recommended:</strong> worse on the majority of intolerable symptoms; consider only if other clinical factors dominate</li>
-      <li>Differences ≤ 5 events/1,000 patients are treated as equivalent (within estimation noise)</li>
-    </ul></div>
+    <h2 class="guide-section-title">Reading the Switching Output
+      <button class="guide-section-link" onclick="document.querySelector('[data-tab=switching]').click()">→ Drug Switching</button>
+    </h2>
+    <div class="switch-vis">
+      <div class="switch-vis-item">
+        <span class="switch-vis-icon">✅</span>
+        <div class="switch-vis-text"><strong>Recommended</strong> — Alternative shows better or equivalent risk for <em>every</em> intolerable symptom with available data</div>
+      </div>
+      <div class="switch-vis-item">
+        <span class="switch-vis-icon">⚠️</span>
+        <div class="switch-vis-text"><strong>Use with Caution</strong> — Better on more symptoms than worse, but trade-off exists; weigh against patient priorities</div>
+      </div>
+      <div class="switch-vis-item">
+        <span class="switch-vis-icon">❌</span>
+        <div class="switch-vis-text"><strong>Not Recommended</strong> — Worse on the majority of intolerable symptoms; consider only if other clinical factors dominate</div>
+      </div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--text-muted);margin-top:0.2rem">Differences ≤ 5 events/1,000 patients are treated as equivalent (within estimation noise).</p>
 
     <h2 class="guide-section-title">GRADE Certainty</h2>
     <div class="grade-legend-grid">
@@ -1297,10 +1446,10 @@ function setupTabs(){
       btn.classList.add('active'); btn.setAttribute('aria-selected','true');
       const panel=document.getElementById('tab-'+btn.dataset.tab);
       panel.classList.add('active');
-      if(btn.dataset.tab==='selection')  renderTab1();
-      if(btn.dataset.tab==='counseling') renderTab2();
-      if(btn.dataset.tab==='switching')  renderTab3();
-      if(btn.dataset.tab==='guide')      renderTab4();
+      if(btn.dataset.tab==='selection' && !_tabRendered.has('selection')){renderTab1();_tabRendered.add('selection');}
+      if(btn.dataset.tab==='counseling' && !_tabRendered.has('counseling')){renderTab2();_tabRendered.add('counseling');}
+      if(btn.dataset.tab==='switching' && !_tabRendered.has('switching')){renderTab3();_tabRendered.add('switching');}
+      if(btn.dataset.tab==='guide' && !_tabRendered.has('guide')){renderTab4();_tabRendered.add('guide');}
     });
   });
 }
@@ -1316,16 +1465,33 @@ function setLang(lang){
   document.querySelector('[data-tab="counseling"]').textContent=t('tab_counseling');
   document.querySelector('[data-tab="switching"]').textContent=t('tab_switching');
   document.querySelector('[data-tab="guide"]').textContent=t('tab_guide');
+  _tabRendered.clear(); // force full re-render on all tabs for language change
   const activeTab=document.querySelector('.tab.active')?.dataset.tab;
-  if(activeTab==='selection') renderTab1();
+  if(activeTab==='selection'){
+    const profileChecked=[...document.querySelectorAll('.t1-profile:checked')].map(c=>c.value);
+    const outcomeChecked=[...document.querySelectorAll('.t1-outcome:checked')].map(c=>c.value);
+    renderTab1(); _tabRendered.add('selection');
+    profileChecked.forEach(v=>{const el=document.querySelector(`.t1-profile[value="${v}"]`);if(el)el.checked=true;});
+    outcomeChecked.forEach(v=>{const el=document.querySelector(`.t1-outcome[value="${v}"]`);if(el)el.checked=true;});
+    updateTab1Profile(); updateTab1Chart();
+  }
   if(activeTab==='counseling'){
     const drug=document.getElementById('t2-drug')?.value;
-    renderTab2();
+    const sympChecked=[...document.querySelectorAll('.t2-symp:checked')].map(c=>c.value);
+    renderTab2(); _tabRendered.add('counseling');
     if(drug){const s=document.getElementById('t2-drug');if(s)s.value=drug;}
-    updateTab2();
+    sympChecked.forEach(v=>{const el=document.querySelector(`.t2-symp[value="${v}"]`);if(el)el.checked=true;});
+    updateTab2(); applySymptomHighlight();
   }
-  if(activeTab==='switching') renderTab3();
-  if(activeTab==='guide') renderTab4();
+  if(activeTab==='switching'){
+    const current=document.getElementById('t3-current')?.value;
+    const sympChecked=[...document.querySelectorAll('.t3-symptom:checked')].map(c=>c.value);
+    renderTab3(); _tabRendered.add('switching');
+    if(current){const s=document.getElementById('t3-current');if(s)s.value=current;}
+    sympChecked.forEach(v=>{const el=document.querySelector(`.t3-symptom[value="${v}"]`);if(el)el.checked=true;});
+    updateTab3();
+  }
+  if(activeTab==='guide'){renderTab4();_tabRendered.add('guide');}
 }
 
 // ─── Symptom self-check highlight ─────────────────────────────────────────────
@@ -1402,6 +1568,7 @@ function init(){
   document.getElementById('citation-text').textContent=DATA.meta.citation;
   setupTabs();
   renderTab1();
+  _tabRendered.add('selection');
 }
 document.addEventListener('DOMContentLoaded',init);
 </script>
